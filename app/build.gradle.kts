@@ -50,4 +50,5 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("com.github.chrisbanes:PhotoView:2.3.0")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("io.github.ParkSangGwon:tedpermission-normal:3.3.0")
 }

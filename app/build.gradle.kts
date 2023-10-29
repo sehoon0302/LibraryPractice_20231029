@@ -51,4 +51,5 @@ dependencies {
     implementation ("com.github.chrisbanes:PhotoView:2.3.0")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation ("io.github.ParkSangGwon:tedpermission-normal:3.3.0")
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
 }

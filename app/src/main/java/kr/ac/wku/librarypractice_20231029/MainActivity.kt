@@ -1,12 +1,15 @@
 package kr.ac.wku.librarypractice_20231029
 
+import android.Manifest
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
 import com.gun0912.tedpermission.PermissionListener
+import com.gun0912.tedpermission.normal.TedPermission
 import kr.ac.wku.librarypractice_20231029.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -43,6 +46,16 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this@MainActivity, "권한 문제로 전화 연결이 실패하였습니다.", Toast.LENGTH_SHORT).show()
                 }
             }
+
+            //실제 권한을 물어보자
+            TedPermission.create()
+                .setPermissionListener(pl)
+                .setDeniedMessage("권한 안주면 통화 안됨")
+                .setPermissions(Manifest.permission.CALL_PHONE)
+                .check()
         }
+
+        //화면이 켜지면 바로 이미지 불러내기 (웹상 이미지)
+        Glide.with(this).load("https://image.fmkorea.com/files/attach/new3/20230303/14339012/5172694399/5547218281/1109ad19aede09f196c1817e7dae1879.jpeg").into(binding.imgThumbnail)
     }
 }
